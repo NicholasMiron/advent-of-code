@@ -1,4 +1,4 @@
-import { fileToArray } from "../utils.js";
+import { fileToArray } from "../../utils.js";
 
 const solution = (file) => {
   const data = fileToArray(file);
