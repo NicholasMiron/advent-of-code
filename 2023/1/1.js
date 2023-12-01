@@ -11,5 +11,5 @@ const solution = (file) => {
     .reduce((total, cur) => total + cur, 0);
 }
 
-console.log(solution('./sample.txt'))
+console.log(solution('./sample1.txt'))
 console.log(solution('./input.txt'))
