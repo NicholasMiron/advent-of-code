@@ -1,4 +1,4 @@
-import {fileToString} from '../../utils.js';
+import { fileToString } from '../../utils.js';
 
 const limits = {
   red: 12,
