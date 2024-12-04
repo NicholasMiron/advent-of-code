@@ -1,6 +1,8 @@
-import { fileToArray } from '../../utils.js';
+import { fileToArray, getFilePath } from '../../utils.js';
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToArray(getFilePath(import.meta.dirname, file));
+
   const raceDuration = Number(input[0].match(/\d+/g).join(''));
   const raceRecord = Number(input[1].match(/\d+/g).join(''));
   let countRecordBeaten = 0
@@ -13,5 +15,5 @@ const solution = (input) => {
   return countRecordBeaten;
 };
 
-console.log(solution(fileToArray('sample1.txt')));
-console.log(solution(fileToArray('input.txt')));
+console.log(solution('sample1.txt'));
+console.log(solution('input.txt'));

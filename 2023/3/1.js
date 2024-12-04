@@ -1,6 +1,8 @@
-import { fileToArray } from '../../utils.js';
+import { fileToArray, getFilePath } from '../../utils.js';
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToArray(getFilePath(import.meta.dirname, file));
+
   const symbolLocations = input
     .map((line, yIndex) => {
       const matches = line.matchAll(/[^\d.\r]/g);
@@ -47,5 +49,5 @@ const solution = (input) => {
     }).flat().reduce((sum, cur) => sum + cur, 0);
 };
 
-console.log(solution(fileToArray('./sample1.txt')));
-console.log(solution(fileToArray('./input.txt')));
+console.log(solution('./sample1.txt'));
+console.log(solution('./input.txt'));

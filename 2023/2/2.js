@@ -1,6 +1,8 @@
-import { fileToString } from '../../utils.js';
+import { fileToString, getFilePath } from '../../utils.js';
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToString(getFilePath(import.meta.dirname, file));
+
   return input
     .split('\n')
     .map((gameLine) => {
@@ -19,5 +21,5 @@ const solution = (input) => {
     .reduce((powerTotal, gamePower) => powerTotal + gamePower, 0);
 };
 
-console.log(solution(fileToString('./sample1.txt')));
-console.log(solution(fileToString('./input.txt')));
+console.log(solution('./sample1.txt'));
+console.log(solution('./input.txt'));

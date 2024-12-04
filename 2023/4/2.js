@@ -1,6 +1,8 @@
-import { fileToArray } from '../../utils.js';
+import { fileToArray, getFilePath } from '../../utils.js';
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToArray(getFilePath(import.meta.dirname, file));
+
   const numCardCopies = (new Array(input.length)).fill(1);
 
   input.forEach((line, lineI) => {
@@ -19,5 +21,5 @@ const solution = (input) => {
   return numCardCopies.slice(0, input.length).reduce((total, cur) => total + cur, 0);
 };
 
-console.log(solution(fileToArray('./sample1.txt')));
-console.log(solution(fileToArray('./input.txt')));
+console.log(solution('./sample1.txt'));
+console.log(solution('./input.txt'));

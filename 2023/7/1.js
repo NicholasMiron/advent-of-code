@@ -1,4 +1,4 @@
-import { fileToArray } from '../../utils.js';
+import { fileToArray, getFilePath } from '../../utils.js';
 
 const HAND_TYPES = {
   FIVE_OF_A_KIND: 6,
@@ -37,7 +37,9 @@ const determineHandType = (hand) => {
   return HAND_TYPES.HIGH_CARD;
 }
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToArray(getFilePath(import.meta.dirname, file));
+
   return input
     .map((line) => {
       const [hand, bid] = line.split(' ');
@@ -65,5 +67,5 @@ const solution = (input) => {
     }, 0);
 };
 
-console.log(solution(fileToArray('sample1.txt')));
-console.log(solution(fileToArray('input.txt')));
+console.log(solution('sample1.txt'));
+console.log(solution('input.txt'));

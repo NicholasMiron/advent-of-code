@@ -1,6 +1,8 @@
-import { fileToArray } from '../../utils.js';
+import { fileToArray, getFilePath } from '../../utils.js';
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToArray(getFilePath(import.meta.dirname, file));
+
   const times = input[0].match(/\d+/g).map(Number);
   const records = input[1].match(/\d+/g).map(Number);
   const countRecordBeaten = (new Array(times.length)).fill(0);
@@ -17,5 +19,5 @@ const solution = (input) => {
   return countRecordBeaten.reduce((total, cur) => total * cur, 1);
 };
 
-console.log(solution(fileToArray('sample1.txt')));
-console.log(solution(fileToArray('input.txt')));
+console.log(solution('sample1.txt'));
+console.log(solution('input.txt'));

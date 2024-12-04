@@ -1,6 +1,8 @@
-import { fileToArray } from '../../utils.js';
+import { fileToArray, getFilePath } from '../../utils.js';
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToArray(getFilePath(import.meta.dirname, file));
+
   return input.map((line) => {
     const [wGroup, mGroup] = line.trim().split(':')[1].trim().split('|');
     const winningNums = wGroup.trim().split(/\s+/).map(Number);
@@ -13,5 +15,5 @@ const solution = (input) => {
   }).reduce((total, cur) => total + cur, 0);
 };
 
-console.log(solution(fileToArray('./sample1.txt')));
-console.log(solution(fileToArray('./input.txt')));
+console.log(solution('./sample1.txt'));
+console.log(solution('./input.txt'));

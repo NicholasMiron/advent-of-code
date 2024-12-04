@@ -1,7 +1,7 @@
-import { fileToArray } from "../../utils.js";
+import { fileToArray, getFilePath } from "../../utils.js";
 
-const solution = (file) => {
-  const data = fileToArray(file);
+export const solution = (file) => {
+  const data = fileToArray(getFilePath(import.meta.dirname, file));
 
   const numMap = {
     'one': '1',

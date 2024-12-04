@@ -1,4 +1,4 @@
-import { fileToString } from '../../utils.js';
+import { fileToString, getFilePath } from '../../utils.js';
 
 const limits = {
   red: 12,
@@ -6,7 +6,9 @@ const limits = {
   blue: 14,
 };
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToString(getFilePath(import.meta.dirname, file));
+
   return input
     .split('\n')
     .filter((gameLine) => {
@@ -23,5 +25,5 @@ const solution = (input) => {
     }, 0)
 }
 
-console.log(solution(fileToString('./sample1.txt')));
-console.log(solution(fileToString('./input.txt')));
+console.log(solution('./sample1.txt'));
+console.log(solution('./input.txt'));

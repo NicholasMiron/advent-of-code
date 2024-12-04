@@ -1,4 +1,4 @@
-import { fileToArray } from '../../utils.js';
+import { fileToArray, getFilePath } from '../../utils.js';
 
 const filterNumsInRange = (match, x) => {
   if (!match) return false;
@@ -15,7 +15,9 @@ const filterNumsInRange = (match, x) => {
   return false;
 }
 
-const solution = (input) => {
+export const solution = (file) => {
+  const input = fileToArray(getFilePath(import.meta.dirname, file));
+
   const potentialGearLocations = input.map((line, y) => {
     const potentialGearMatches = line.matchAll(/\*/g);
 
@@ -60,5 +62,5 @@ const solution = (input) => {
     }).reduce((ratioSums, cur) => ratioSums + cur, 0);
 };
 
-console.log(solution(fileToArray('./sample1.txt')));
-console.log(solution(fileToArray('./input.txt')));
+console.log(solution('./sample1.txt'));
+console.log(solution('./input.txt'));
