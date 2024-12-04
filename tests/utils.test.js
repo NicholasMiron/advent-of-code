@@ -1,4 +1,3 @@
-import { expect, it, describe, vi } from "vitest";
 import { getArrayPermutations, getSubArrays } from "../utils.js";
 
 describe('getArrayPermutations', () => {

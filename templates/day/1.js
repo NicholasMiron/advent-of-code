@@ -1,7 +1,7 @@
 import { fileToString, getFilePath } from "../../utils.js";
 import { fileToArray, getFilePath } from "../../utils.js";
 
-const solution = (file) => {
+export const solution = (file) => {
   const input = fileToString(getFilePath(import.meta.dirname, file));
   const input = fileToArray(getFilePath(import.meta.dirname, file));
 

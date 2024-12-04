@@ -1,6 +1,6 @@
 import { fileToArray, getFilePath } from "../../utils.js";
 
-const solution = (file) => {
+export const solution = (file) => {
   const input = fileToArray(getFilePath(import.meta.dirname, file));
 
   const leftList = [];
@@ -25,5 +25,5 @@ const solution = (file) => {
   return distance;
 };
 
-console.log(solution('./sample1.txt'));
+console.log(solution('./sample.txt'));
 console.log(solution('./input.txt'));

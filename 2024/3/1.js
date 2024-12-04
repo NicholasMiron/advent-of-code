@@ -1,6 +1,6 @@
 import { fileToString, getFilePath } from "../../utils.js";
 
-const solution = (file) => {
+export const solution = (file) => {
   const input = fileToString(getFilePath(import.meta.dirname, file));
 
   return Array.from(input.matchAll(/mul\((\d+),(\d+)\)/g))

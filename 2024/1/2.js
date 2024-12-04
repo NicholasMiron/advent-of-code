@@ -1,6 +1,6 @@
 import { fileToArray, getFilePath } from "../../utils.js";
 
-const solution = (file) => {
+export const solution = (file) => {
   const input = fileToArray(getFilePath(import.meta.dirname, file));
 
   const leftList = [];
@@ -21,5 +21,5 @@ const solution = (file) => {
   return leftList.reduce((acc, cur) => acc + ((rightCounts[cur] || 0) * cur), 0);
 };
 
-console.log(solution('./sample1.txt'));
+console.log(solution('./sample.txt'));
 console.log(solution('./input.txt'));

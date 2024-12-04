@@ -1,4 +1,4 @@
-import { fileToArray, getFilePath, iteratePermutations } from "../../utils.js";
+import { fileToArray, getFilePath } from "../../utils.js";
 
 const ascending = (num1, num2) => num1 < num2;
 const descending = (num1, num2) => num1 > num2;
@@ -10,7 +10,7 @@ const isValid = (compareFn) => {
   }
 }
 
-const solution = (file) => {
+export const solution = (file) => {
   const input = fileToArray(getFilePath(import.meta.dirname, file));
 
   const result = input
