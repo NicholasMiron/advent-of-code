@@ -25,17 +25,37 @@ export const getSubArrays = (array, cb, minLength = 1) => {
 
 }
 
-export const getArrayPermutations = (arr, cb, n = arr.length) => {
+export const getArrayPermutationsCb = (arr, cb, n = arr.length) => {
   if (n === 1) {
     cb([...arr]);
   }
   for (let i = 0; i < n; i++) {
-    getArrayPermutations(arr, cb,n - 1);
+    getArrayPermutationsCb(arr, cb,n - 1);
     if (n % 2 === 0) {
       [arr[i], arr[n - 1]] = [arr[n - 1], arr[i]]
     } else {
       [arr[0], arr[n - 1]] = [arr[n - 1], arr[0]]
     }
   }
+}
+
+export const getArrayPermutations = (inputArr) => {
+  let result = [];
+
+  const permute = (arr, m = []) => {
+    if (arr.length === 0) {
+      result.push(m)
+    } else {
+      for (let i = 0; i < arr.length; i++) {
+        let curr = arr.slice();
+        let next = curr.splice(i, 1);
+        permute(curr.slice(), m.concat(next))
+      }
+    }
+  }
+
+  permute(inputArr);
+
+  return result;
 }
 // ARRAY UTILS END

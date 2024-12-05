@@ -1,9 +1,9 @@
-import { getArrayPermutations, getSubArrays } from "../utils.js";
+import { getArrayPermutationsCb, getSubArrays } from "../utils.js";
 
 describe('getArrayPermutations', () => {
   it('Should trigger callback for each permutation', () => {
     const mockCb = vi.fn();
-    getArrayPermutations([1,2,3], mockCb);
+    getArrayPermutationsCb([1,2,3], mockCb);
 
     expect(mockCb).toHaveBeenCalledWith([1,2,3]);
     expect(mockCb).toHaveBeenCalledWith([1,3,2]);
@@ -15,14 +15,14 @@ describe('getArrayPermutations', () => {
 
   it('Should trigger callback for one permutation', () => {
     const mockCb = vi.fn();
-    getArrayPermutations([1], mockCb);
+    getArrayPermutationsCb([1], mockCb);
 
     expect(mockCb).toHaveBeenCalledWith([1]);
   });
 
   it('Should not trigger callback for empty array', () => {
     const mockCb = vi.fn();
-    getArrayPermutations([], mockCb);
+    getArrayPermutationsCb([], mockCb);
 
     expect(mockCb).not.toHaveBeenCalled();
   });
